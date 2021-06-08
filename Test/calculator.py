@@ -45,6 +45,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "1")
         self.i = 0
 
@@ -52,6 +55,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "2")
         self.i = 0
 
@@ -59,6 +65,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "3")
         self.i = 0
 
@@ -66,6 +75,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "4")
         self.i = 0
 
@@ -73,6 +85,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "5")
         self.i = 0
 
@@ -80,6 +95,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "6")
         self.i = 0
 
@@ -87,6 +105,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "7")
         self.i = 0
 
@@ -94,6 +115,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "8")
         self.i = 0
 
@@ -101,6 +125,9 @@ class MainWindow(QtWidgets.QMainWindow):
         if self.i == 1:
             self.ui.label.setText("")
         text = self.ui.label.text()
+        if text == "0":
+            self.ui.label.setText("")
+            text = self.ui.label.text()
         self.ui.label.setText(text + "9")
         self.i = 0
 
