@@ -45,7 +45,8 @@ for feature in x_data:
 x_data = x_data.T
 (x_train, x_test), (y_train, y_test) = np.split(x_data, [int(len(x_data) * 0.8)]), \
                                        np.split(y_data, [int(len(y_data) * 0.8)])
-
+print(x_test.shape)
+print(y_test.shape)
 input_shape = (4,)
 batch_size = 10
 
