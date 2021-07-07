@@ -4,6 +4,7 @@ import numpy as np
 import xlrd
 import tensorflow.keras as keras
 from matplotlib import pyplot
+from mlr.MLR import MyLinearRegression as mlr
 from numpy import concatenate
 from sklearn.metrics import mean_squared_error
 from tensorflow.keras.models import Sequential
@@ -51,9 +52,11 @@ print(x_train[0])
 print(x_test[0])
 input_shape = (3,)
 batch_size = 10
-
+epochs = 50
 model = Sequential()
 model.add(Dense(16, activation='relu', input_shape=input_shape))
+model.add(Dense(16, activation='relu'))
+model.add(Dense(16, activation='relu'))
 model.add(Dense(16, activation='relu'))
 model.add(Dense(16, activation='relu'))
 model.add(Dense(1))
@@ -64,7 +67,7 @@ model.compile(loss='mean_squared_error', optimizer='adam')
 
 early_stopping = EarlyStopping(monitor='val_loss', patience=50, verbose=2)
 
-history = model.fit(x_train, y_train, epochs=300, batch_size=20,
+history = model.fit(x_train, y_train, epochs=epochs, batch_size=20,
                     validation_data=(x_data, y_data), verbose=2,
                     shuffle=False, callbacks=[early_stopping])
 
@@ -78,7 +81,9 @@ model = load_model("boston_housing.h5")
 price = model.predict(x_test)
 rmse = sqrt(mean_squared_error(y_test, price))
 print('Test RMSE: %.3f' % rmse)
-pyplot.plot(y_test, label='y_test')
-pyplot.plot(price, label='price')
-pyplot.legend()
+plt = y_test - price
+models = mlr()
+models.ingest_data(plt, y_test)
+models.fit()
+models.fitted_vs_residual()
 pyplot.show()
