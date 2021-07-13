@@ -27,9 +27,10 @@ boxId = p.loadURDF("C:/Users/Cat/Desktop/ur_mir_data/mir_ur.urdf")
 numJoints = p.getNumJoints(boxId)
 for joint in range(numJoints):
     print(p.getJointInfo(boxId, joint))
-# p.getDynamicsInfo(planeId)
-p.setJointMotorControl2(boxId, 19, p.POSITION_CONTROL, targetVelocity=10)
+    p.setJointMotorControl(boxId, joint, p.POSITION_CONTROL, 0, 100)
 
+p.setJointMotorControl2(boxId, 19, p.VELOCITY_CONTROL, targetVelocity=5)
 p.setRealTimeSimulation(1)
 while 1:
-    time.sleep(1. / 240.)
+
+    time.sleep(1.)
