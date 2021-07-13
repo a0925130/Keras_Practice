@@ -14,6 +14,7 @@ import tensorflow as tf
 from tensorflow.python.keras.layers import Add
 from tensorflow.python.keras.utils.vis_utils import plot_model
 
+
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
 
 num_labels = len(np.unique(y_train))
