@@ -1,12 +1,14 @@
+import numpy as np
 import pybullet as p
 import time
 import pybullet_data
+from opt_einsum.backends import torch
 
 physicsClient = p.connect(p.GUI)
-p.configureDebugVisualizer(p.COV_ENABLE_GUI, 0)
-p.setAdditionalSearchPath(pybullet_data.getDataPath())
+p.configureDebugVisualizer(p.COV_ENABLE_GUI, 1)
 p.setGravity(0, 0, -9.81)
-planeId = p.loadURDF("plane.urdf")
+planeId = p.loadURDF("C:/Users/Cat/Desktop/ur_mir_data/plane.urdf")
+
 roomStartPos = [0, 0, 1]
 obstacleSratPos_1 = [3.5, 2.5, 1]
 obstacleSratPos_2 = [-3, 1, 1]
@@ -29,8 +31,14 @@ for joint in range(numJoints):
     print(p.getJointInfo(boxId, joint))
     p.setJointMotorControl(boxId, joint, p.POSITION_CONTROL, 0, 100)
 
-p.setJointMotorControl2(boxId, 19, p.VELOCITY_CONTROL, targetVelocity=5)
+# p.setJointMotorControl2(boxId, 21, p.POSITION_CONTROL, targetVelocity=-30)
+# p.setJointMotorControl2(boxId, 22, p.POSITION_CONTROL, targetVelocity=10)
+# p.setJointMotorControl2(boxId, 23, p.POSITION_CONTROL, targetVelocity=5)
+# p.setJointMotorControl2(boxId, 24, p.POSITION_CONTROL, targetVelocity=5)
+# p.setJointMotorControl2(boxId, 20, p.VELOCITY_CONTROL, targetVelocity=5)
+
+# p.setJointMotorControl2(boxId, 8, p.VELOCITY_CONTROL, targetVelocity=15)
+# p.setJointMotorControl2(boxId, 9, p.VELOCITY_CONTROL, targetVelocity=15)
 p.setRealTimeSimulation(1)
 while 1:
-
-    time.sleep(1.)
+    time.sleep(1. / 240.)
